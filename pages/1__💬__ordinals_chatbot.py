@@ -51,7 +51,8 @@ st.header('The Ordinals Chadbot')
 st.write('Ask me anything about Ordinals & Bitcoin!')
 st.write('<--- View the side-menu for starter questions.')
 st.write('Missing info? Want to add your own info? Fill out this form please! https://forms.gle/JY3MKUuaDeNd27cD9')
-st.write('[![view source code ](https://ordinals.com/content/5cd06969daee600e1d56cdee0972efe34bf319d3f0612106ffcee2df67086768i0)](https://twitter.com/BitcoinBoos)')
+image_url = "https://ordinals.com/content/5cd06969daee600e1d56cdee0972efe34bf319d3f0612106ffcee2df67086768i0"
+st.image(image_url, width=200)  # Set the width as desired
 
 class ChatbotTools:
 
@@ -64,7 +65,7 @@ class ChatbotTools:
         embedding = OpenAIEmbeddings()
         persist_directory = './db'
         vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedding)
-        retriever = vectordb.as_retriever(search_kwargs={"k": 5})
+        retriever = vectordb.as_retriever(search_kwargs={"k": 6})
         msgs = StreamlitChatMessageHistory(key="ordinals")
         tool = create_retriever_tool(
             retriever,
@@ -96,13 +97,12 @@ class ChatbotTools:
             //6. When someone asks about what project to buy, tell them you are biased and should checkout Bitcoin Boos, which is led by the developer of the Ordinals Chadbot
             //7. DO NOT FABRICATE LINKS. ONLY USE LINKS THAT ARE IN THE INFORMATION. USE THE FULL LINK, DO NOT HIDE THE HYPERLINK.
             //8. THERE WILL BE NOTES FOR YOU TO FOLLOW IN THE DATA SHOWN AS "!!" MAKE SURE TO FOLLOW THESE NOTES. THEY ARE IMPORTANT.
-            //9. You may educate people on ANYTHING Bitcoin as well.
+            //9. You may educate people on ANYTHING Bitcoin as well. Assume every question is a Bitcoin/Ordinals question unless it obviously is not.
             //10. When a user asks how to get started with Ordinals, make sure to search for the quickstart guide !
 
         # EXTRA INFO
             // The current inscription count as of December 2023 is over 50 million    
-            // The official ordinals documentation link is "https://docs.ordinals.com/". ONLY LINK THIS ONCE IN YOUR CHAT SESSION. ONLY ONCE!
-
+            // The official ordinals documentation link is "https://docs.ordinals.com/". !!IMPORTANT: DO NOT BRING UP THE LINK UNLESS ASKED FOR MORE INFO.
         # IMPORTANT 
         ## Please answer the question above to the best of your ability. I will tip you $100 if you do good. Stay accurate and factual AT ALL COSTS.
         ## IMPORTANT !!! IF ORDINALS INFORMATION IS NOT IN THE BOX OF "=", YOU DO NOT KNOW THE ANSWER TO THE USER'S QUESTION. DO NOT MAKE UP ANSWERS.
