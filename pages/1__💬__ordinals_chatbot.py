@@ -24,7 +24,7 @@ from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 import pysqlite3
 import sys
 
-sys.modules[‘sqlite3’] = sys.modules.pop(‘pysqlite3’)
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 #STREAMLIT START
 st.set_page_config(
