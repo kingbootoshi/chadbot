@@ -142,6 +142,7 @@ class ChatbotTools:
 
         # Display predefined query buttons in the sidebar and handle their clicks
         with st.sidebar:
+            st.write('p.s. mobile users: if you lose your chatbar/sidebar >, scroll up/down using the very right of the screen')
             st.header("Starter Questions to ask Chad")
             for query in predefined_queries:
                 if st.button(query):
