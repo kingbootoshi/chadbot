@@ -1,8 +1,6 @@
 import os
 import random
 import streamlit as st
-from dotenv import load_dotenv
-load_dotenv()
 
 #decorator
 def enable_chat_history(func):
