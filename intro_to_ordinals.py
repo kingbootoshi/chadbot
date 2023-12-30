@@ -15,7 +15,7 @@ st.write("""
 st.write("""
 Welcome to your essential guide to Ordinals on the Bitcoin blockchain! Here, we turn every satoshi into something unique, offering endless possibilities for digital artifacts and inscriptions.
 
-Explore this world with ease using our platform, featuring an expert chatbot ready to demystify Ordinals and Bitcoin for you. Whether you're a beginner or a pro, our Chadbot is here to help with any question.
+Explore this ecosystem with ease using our platform, featuring an expert chatbot ready to demystify Ordinals and Bitcoin for you. Whether you're a beginner or a pro, our Chadbot is here to help with any question.
 
 Our website offers:
 
@@ -23,7 +23,7 @@ Our website offers:
 - Ordinals Explained: A quick, clear intro to Ordinals.
 - Interactive Learning: Master everything about Ordinals.
 
-Start your journey or get specific help through our menu. Your adventure in Bitcoin's unique digital world begins now!
+Your adventure in Bitcoin's unique digital world begins now!
 """)
 
 st.header("Access the Chatbot")
