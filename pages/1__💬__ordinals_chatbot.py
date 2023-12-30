@@ -53,6 +53,7 @@ st.write('<--- View the side-menu for starter questions.')
 st.write('Missing info? Want to add your own info? Fill out this form please! https://forms.gle/JY3MKUuaDeNd27cD9')
 image_url = "https://ordinals.com/content/5cd06969daee600e1d56cdee0972efe34bf319d3f0612106ffcee2df67086768i0"
 st.image(image_url, width=200)  # Set the width as desired
+st.caption("p.s. mobile users: if you lose your chatbar/sidebar >, scroll up/down using the very right of the screen")
 
 class ChatbotTools:
 
@@ -142,7 +143,6 @@ class ChatbotTools:
 
         # Display predefined query buttons in the sidebar and handle their clicks
         with st.sidebar:
-            st.write('p.s. mobile users: if you lose your chatbar/sidebar >, scroll up/down using the very right of the screen')
             st.header("Starter Questions to ask Chad")
             for query in predefined_queries:
                 if st.button(query):
