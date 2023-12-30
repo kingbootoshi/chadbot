@@ -3,3 +3,4 @@ openai
 streamlit
 chromadb
 pysqlite3-binary
+tiktoken
