@@ -31,7 +31,7 @@ st.set_page_config(
     page_title="ORANGE PILLING...",
     page_icon="🍊",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="auto",
     menu_items={
         "Get help": "https://discord.gg/ordinals",
         "Report a bug": "https://twitter.com/KingBootoshi",
