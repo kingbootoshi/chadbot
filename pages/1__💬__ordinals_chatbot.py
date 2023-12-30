@@ -39,6 +39,7 @@ st.set_page_config(
             ## THE ORDINALS CHATBOT
             
             **Creator Twitter**: https://twitter.com/KingBootoshi
+            **Data Repo**: https://github.com/kingbootoshi/ordinals_ai_data
             
             The AI Assistant named, The Ordinals Chatbot, is aimed to answer questions
             related to the Bitcoin Ordinals eco-system. Developed and created by King Bootoshi.
