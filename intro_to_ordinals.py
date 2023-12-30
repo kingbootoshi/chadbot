@@ -3,7 +3,23 @@ import streamlit as st
 st.set_page_config(
     page_title="The Ordinals Chadbot",
     page_icon='chadboo.png',
-    layout='wide'
+    layout='wide',
+    initial_sidebar_state="auto",
+    menu_items={
+        "Get help": "https://discord.gg/ordinals",
+        "Report a bug": "https://twitter.com/KingBootoshi",
+        "About": """
+            ## THE ORDINALS CHATBOT
+            
+            **Creator Twitter**: https://twitter.com/KingBootoshi\n
+            **Data Repo**: https://github.com/kingbootoshi/ordinals_ai_data
+            
+            The AI Assistant named, The Ordinals Chatbot, is aimed to answer questions
+            related to the Bitcoin Ordinals eco-system. Developed and created by King Bootoshi.
+            DM him on Twitter if you have any questions or concerns.
+
+        """
+    }
 )
 
 # CODE
