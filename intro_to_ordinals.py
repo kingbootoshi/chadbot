@@ -22,7 +22,6 @@ Our website offers:
 - Chatbot Guide: Engaging, easy-to-understand conversations with Chadbot.
 - Ordinals Explained: A quick, clear intro to Ordinals.
 - Interactive Learning: Master everything about Ordinals.
-- Community Gateway: Connect with fellow Ordinals fans and creators.
 
 Start your journey or get specific help through our menu. Your adventure in Bitcoin's unique digital world begins now!
 """)
