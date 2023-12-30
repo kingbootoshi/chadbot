@@ -13,7 +13,9 @@ st.write("""
 [![view source code ](https://ordinals.com/content/c17dd02a7f216f4b438ab1a303f518abfc4d4d01dcff8f023cf87c4403cb54cai0)](https://ordinals.com/inscription/2)""")
 
 st.write("""
-Welcome to your essential guide to Ordinals on the Bitcoin blockchain! Here, we turn every satoshi into something unique, offering endless possibilities for digital artifacts and inscriptions.
+Hi, we're your guide to Ordinals on the Bitcoin blockchain! 
+
+Here, we turn every satoshi into something unique, offering endless possibilities for digital artifacts and inscriptions.
 
 Explore this ecosystem with ease using our platform, featuring an expert chatbot ready to demystify Ordinals and Bitcoin for you. Whether you're a beginner or a pro, our Chadbot is here to help with any question.
 
