@@ -29,16 +29,10 @@ Start your journey or get specific help through our menu. Your adventure in Bitc
 
 st.header("Access the Chatbot")
 
-# Use this button to set the query parameters to navigate to the chatbot page
-if st.button("Go to Chatbot"):
-    # This will change the URL to include the query parameter for the chatbot page
-    st.experimental_set_query_params(page="ordinals_chatbot")
-    # Then you can check for this parameter in your main app script and render the appropriate page
-
-st.header("Ordinals ELI5")
-
-# Adding a button that toggles the explanation text
-if st.button('Explain Ordinals like I\'m 5'):
-    st.write("""
-    Imagine Bitcoin is a huge, global piggy bank. Ordinals are like special stickers you can put on each coin (satoshi) in that piggy bank. Once a sticker is on a coin, it stays there forever and makes that coin unique. You can also draw on the coin, write a message, or even put a tiny picture on it. This way, you can collect, trade, and show off your special coins with their unique stickers to others!
-    """)
+st.markdown(
+    "<a href='https://chadbot.streamlit.app/ordinals_chatbot' target='_blank'>"
+    "<button style='color: black; background-color: #f7931a; padding: 10px 24px; "
+    "border-radius: 8px; border: none; cursor: pointer;'>"
+    "Talk to Chadbot</button></a>", 
+    unsafe_allow_html=True
+)
