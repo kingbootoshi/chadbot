@@ -21,7 +21,7 @@ from langchain_core.messages import SystemMessage
 from langchain.agents import AgentExecutor
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 
-import(‘pysqlite3’)
+import pysqlite3
 import sys
 
 sys.modules[‘sqlite3’] = sys.modules.pop(‘pysqlite3’)
