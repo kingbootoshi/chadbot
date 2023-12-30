@@ -67,7 +67,7 @@ class ChatbotTools:
         embedding = OpenAIEmbeddings()
         persist_directory = './db'
         vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedding)
-        retriever = vectordb.as_retriever(search_kwargs={"k": 6})
+        retriever = vectordb.as_retriever(search_kwargs={"k": 8})
         msgs = StreamlitChatMessageHistory(key="ordinals")
         tool = create_retriever_tool(
             retriever,
