@@ -67,7 +67,7 @@ class ChatbotTools:
 
     def __init__(self):
         utils.configure_openai_api_key()
-        self.openai_model = "gpt-3.5-turbo-1106"
+        self.openai_model = "yeet"
 
     @st.cache_data
     def get_feedback(_self):
