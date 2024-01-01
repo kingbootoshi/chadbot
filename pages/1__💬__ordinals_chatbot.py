@@ -21,10 +21,8 @@ from langchain_core.messages import SystemMessage
 from langchain.agents import AgentExecutor
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 
-import pysqlite3
-import sys
-
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+from trubrics import Trubrics
+from trubrics.integrations.streamlit import FeedbackCollector
 
 #STREAMLIT START
 st.set_page_config(
@@ -38,7 +36,7 @@ st.set_page_config(
         "About": """
             ## THE ORDINALS CHATBOT
             
-            **Creator Twitter**: https://twitter.com/KingBootoshi
+            **Creator Twitter**: https://twitter.com/KingBootoshi\n
             **Data Repo**: https://github.com/kingbootoshi/ordinals_ai_data
             
             The AI Assistant named, The Ordinals Chatbot, is aimed to answer questions
@@ -49,12 +47,16 @@ st.set_page_config(
     }
 )
 st.header('The Ordinals Chadbot')
-st.write('Ask me anything about Ordinals & Bitcoin!')
-st.write('<--- View the side-menu for starter questions.')
+st.write('<--- View the side-menu for starter questions. ')
 st.write('Missing info? Want to add your own info? Fill out this form please! https://forms.gle/JY3MKUuaDeNd27cD9')
 image_url = "https://ordinals.com/content/5cd06969daee600e1d56cdee0972efe34bf319d3f0612106ffcee2df67086768i0"
 st.image(image_url, width=200)  # Set the width as desired
 st.caption("p.s. mobile users: if you lose your chatbar/sidebar >, scroll up/down using the very right of the screen")
+
+if "logged_prompt" not in st.session_state:
+    st.session_state.logged_prompt = None
+if "feedback_key" not in st.session_state:
+    st.session_state.feedback_key = 0
 
 class ChatbotTools:
 
@@ -62,12 +64,21 @@ class ChatbotTools:
         utils.configure_openai_api_key()
         self.openai_model = "gpt-3.5-turbo-1106"
 
+    @st.cache_data
+    def get_feedback(_self):
+        collector = FeedbackCollector(
+        project="chadbot_live",
+        email=st.secrets["TRUBRICS_EMAIL"],
+        password=st.secrets["TRUBRICS_PASSWORD"],
+        )
+        return collector
+
     @st.cache_resource
     def setup_chain(_self):
         embedding = OpenAIEmbeddings()
         persist_directory = './db'
         vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedding)
-        retriever = vectordb.as_retriever(search_kwargs={"k": 8})
+        retriever = vectordb.as_retriever(search_kwargs={"k": 10})
         msgs = StreamlitChatMessageHistory(key="ordinals")
         tool = create_retriever_tool(
             retriever,
@@ -142,21 +153,37 @@ class ChatbotTools:
             "What is BRC-20?"
         ]
 
+        collector = self.get_feedback()
+        
         # Display predefined query buttons in the sidebar and handle their clicks
         with st.sidebar:
             st.header("Starter Questions to ask Chad")
             for query in predefined_queries:
                 if st.button(query):
                     self.handle_query(query, is_button=True)
+            
             st.header("Useful X Posts")
             st.write('Ordinals Dictionary: https://x.com/goatedxyz/status/1698259057390575900')
             st.write('People to follow in Ordinals: https://x.com/goatedxyz/status/1740513918668386755')
             st.write('Getting Started with Ordinals Cheat Sheet: https://x.com/LeonidasNFT/status/1722344475597373851?s=20')
 
         # Handle normal user input
-        user_query = st.chat_input(placeholder="Ask me anything!")
+        user_query = st.chat_input(placeholder="Ask me anything about Ordinals & Bitcoin!")
         if user_query:
             self.handle_query(user_query, is_button=False)
+
+        if st.session_state.logged_prompt:
+            feedback = collector.st_feedback(
+                component="default",
+                feedback_type="thumbs",
+                open_feedback_label="[Optional] Please provide additional feedback",
+                model=st.session_state.logged_prompt.config_model.model,
+                prompt_id=st.session_state.logged_prompt.id,
+                key=st.session_state.feedback_key,
+            )
+            if feedback:
+                st.session_state.feedback_key += 1
+            
 
     def handle_query(self, query, is_button):
         agent_executor = self.setup_chain()
@@ -166,6 +193,14 @@ class ChatbotTools:
             response = agent_executor({"input": query}, callbacks=[st_cb])
             response = response["output"]
             st.session_state.messages.append({"role": "assistant", "content": response})
+            
+            # Log the prompt for feedback after handling the query
+            st.session_state.logged_prompt = self.get_feedback().log_prompt(
+                config_model={"model": "gpt-3.5-turbo-1106"},
+                prompt=query,
+                generation=response
+            )
+            
             if is_button:
                 # Clear the previous chat_message container and create a new one for the response
                 st.experimental_rerun()
