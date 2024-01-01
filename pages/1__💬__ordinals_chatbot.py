@@ -67,7 +67,7 @@ class ChatbotTools:
 
     def __init__(self):
         utils.configure_openai_api_key()
-        self.openai_model = "yeet"
+        self.openai_model = "gpt-3.5-turbo-1106"
 
     @st.cache_data
     def get_feedback(_self):
@@ -91,7 +91,7 @@ class ChatbotTools:
             "Searches and returns documents regarding everything about Bitcoin Ordinals.",
         )
         tools = [tool]
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=.2, max_retries=2, max_tokens=1024, streaming=True)
+        llm = ChatOpenAI(model_name="yeet", temperature=.2, max_retries=2, max_tokens=1024, streaming=True)
         memory_key = "history"
         memory = AgentTokenBufferMemory(memory_key=memory_key, llm=llm, chat_memory=msgs)
         template = """
