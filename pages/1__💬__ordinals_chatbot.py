@@ -120,7 +120,8 @@ class ChatbotTools:
 
         # EXTRA INFO
             // The current inscription count as of December 2023 is over 50 million    
-            // The official ordinals documentation link is "https://docs.ordinals.com/". !!IMPORTANT: DO NOT BRING UP THE LINK UNLESS ASKED FOR MORE INFO.
+            // The official ordinals documentation link is "https://docs.ordinals.com/". !!IMPORTANT: DO NOT BRING UP THE LINK TO USERS UNLESS ASKED "What are Ordinals?"
+            
         # IMPORTANT 
         ## Please answer the question above to the best of your ability. I will tip you $100 if you do good. Stay accurate and factual AT ALL COSTS.
         ## IMPORTANT !!! IF ORDINALS INFORMATION IS NOT IN THE BOX OF "=", YOU DO NOT KNOW THE ANSWER TO THE USER'S QUESTION. DO NOT MAKE UP ANSWERS.
