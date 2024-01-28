@@ -42,6 +42,8 @@ Our website offers:
 - Interactive Learning: Master everything about Ordinals.
 
 Your adventure in Bitcoin's unique digital world begins now!
+
+Created by King Bootoshi of the Boo Kingdom. For more fun AI creations, visit https://twitter.com/BitcoinBoos
 """)
 
 st.header("Access the Chatbot")
