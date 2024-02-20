@@ -1,4 +1,5 @@
 # THE ORDINALS CHADBOT
+![chadboo](https://github.com/kingbootoshi/chadbot/assets/127834715/9b69c32d-ef58-485d-acc5-60d657802cef)
 
 Ordinals Noob? No problem! Speak to the best educator in town!
 
