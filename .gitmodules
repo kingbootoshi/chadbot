@@ -1,0 +1,3 @@
+[submodule "texts"]
+	path = texts
+	url = https://github.com/kingbootoshi/ordinals_ai_data
